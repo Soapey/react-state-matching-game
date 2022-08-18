@@ -5,7 +5,7 @@ import { useHover } from "../../hooks";
 const TileSelector = (props) => {
   const [ref, hovered] = useHover();
 
-  const dropdown = (
+  const dropdown = hovered ? (
     <div className="tileSelectorContent">
       <div
         className="number"
@@ -32,14 +32,14 @@ const TileSelector = (props) => {
         36
       </div>
     </div>
-  );
+  ) : null;
 
   return (
     <div className="tileSelector">
       <div>Number of Tiles</div>
       <div className="tileSelectorDropdown" ref={ref}>
         {props.numTiles}
-        {hovered ? dropdown : null}
+        {dropdown}
       </div>
     </div>
   );
