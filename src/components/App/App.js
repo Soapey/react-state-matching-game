@@ -31,16 +31,13 @@ class App extends Component {
   handleTileClicked = (id, color) => {
     this.setState((state) => {
       const tiles = state.tiles;
-      const toBeCleared = state.toBeCleared;
+      let toBeCleared = state.toBeCleared;
       const selectedTileIndex = indexOfSelected(tiles, id, color);
-      const previousTileIndex = state.previousTileIndex;
+      let previousTileIndex = state.previousTileIndex;
 
       if (toBeCleared !== null) {
-        tiles.map((tile) => {
-          return tile.id == toBeCleared[0].id
-            ? [...tile, (selected = false)]
-            : tile;
-        });
+        tiles[toBeCleared[0]].selected = false;
+        tiles[toBeCleared[1]].selected = false;
         toBeCleared = null;
       }
 
