@@ -55,7 +55,7 @@ class App extends Component {
           previousTile.matched = true;
           previousTileIndex = null;
         } else {
-          toBeCleared[(previousTileIndex, selectedTileIndex)];
+          toBeCleared = [previousTileIndex, selectedTileIndex];
           previousTileIndex = null;
         }
       } else {
