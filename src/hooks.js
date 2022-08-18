@@ -4,13 +4,13 @@ export default function useHover() {
   const ref = useRef();
   const [hovered, setHovered] = useState(false);
 
-  function enter() {
+  enter = () => {
     setHovered(true);
-  }
+  };
 
-  function leave() {
+  leave = () => {
     setHovered(false);
-  }
+  };
 
   useEffect(() => {
     const refCopy = ref;
