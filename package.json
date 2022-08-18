@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.14.0"
   },
   "scripts": {
     "start": "webpack-dev-server --open --mode development --env.entryDir=src",
@@ -48,7 +48,7 @@
     "jest": "^28.1.3",
     "jest-enzyme": "^4.2.0",
     "jest-expect-message": "^1.0.2",
-    "jsdom": "20.0.0",
+    "jsdom": "^20.0.0",
     "jsdom-global": "3.0.2",
     "style-loader": "^1.1.3",
     "webpack": "^4.42.0",
