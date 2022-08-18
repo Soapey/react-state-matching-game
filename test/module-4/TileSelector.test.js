@@ -1,4 +1,3 @@
-import "jsdom-global/register";
 import React from "react";
 import * as useHover from "../../src/hooks";
 import * as restore from "../../src/hooks";

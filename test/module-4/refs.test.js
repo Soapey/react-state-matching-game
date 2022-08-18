@@ -1,29 +1,34 @@
-import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import TileSelector from "../../src/components/TileSelector";
 
-import TileSelector from '../../src/components/TileSelector'
+describe("TileSelector", () => {
+  const mockHandleClick = jest.fn();
 
+  const container = render(
+    <TileSelector numTiles={99} handleNumTileChange={mockHandleClick} />
+  );
 
-describe('TileSelector', () => {
-  const mockHandleClick = jest.fn()
+  it("attaches the ref to the div @attach-ref", () => {
+    const dd = container.queryByText("99");
 
-  const container = render(<TileSelector numTiles={99} handleNumTileChange={mockHandleClick} />)
+    expect(
+      container.queryByText("16"),
+      "Did you return null from the ternary?"
+    ).toBe(null);
 
+    if (dd) fireEvent.mouseEnter(dd);
 
-  it('attaches the ref to the div @attach-ref', () => {
-    const dd = container.queryByText('99')
+    expect(
+      container.queryByText("16"),
+      "Did you attach the ref to the right div?"
+    ).toBeTruthy();
 
-    expect(container.queryByText('16'), 'Did you return null from the ternary?').toBe(null)
+    if (dd) fireEvent.mouseLeave(dd);
 
-    if(dd) fireEvent.mouseEnter(dd)
-
-    expect(container.queryByText('16'), 'Did you attach the ref to the right div?').toBeTruthy()
-
-    if(dd) fireEvent.mouseLeave(dd)
-
-    expect(container.queryByText('16'), 'Did you return null from the ternary?').toBe(null)
-    
-  })
-
-})
-
+    expect(
+      container.queryByText("16"),
+      "Did you return null from the ternary?"
+    ).toBe(null);
+  });
+});
